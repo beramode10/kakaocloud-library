@@ -27,7 +27,9 @@ jobs:
         file: ./server/deploy/Dockerfile
         context: ./server
         push: true
-        tags: ${{ secrets.PROJECT_NAME }}.kr-central-2.kcr.dev/${{ secrets.REPOSITORY_NAME }}/kakaocloud-library-server:${{ github.sha }}
+        tags: |
+          ${{ secrets.PROJECT_NAME }}.kr-central-2.kcr.dev/${{ secrets.REPOSITORY_NAME }}/kakaocloud-library-server:${{ github.sha }}
+          ${{ secrets.PROJECT_NAME }}.kr-central-2.kcr.dev/${{ secrets.REPOSITORY_NAME }}/kakaocloud-library-server:latest
 
   update-deployment-file:
     runs-on: ubuntu-latest
